@@ -1,0 +1,45 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{datetime}
+
+\title{Chapter 1: Overview of Distributed Systems}
+\newdate{date}{15}{03}{2020}
+\date{\displaydate{date}}
+\author{Nguyen Ngoc Lam}
+
+
+\begin{document}
+ 	\pagenumbering{gobble}
+  	\maketitle
+  	\newpage
+  	\pagenumbering{arabic}
+  	\tableofcontents
+  	\newpage
+
+  	\section{Role of Middleware in A Distributed System}
+  	Middleware aims at improving the single-system view that a distributed system should have. In other word, to enhance the distribution transparency that is missing in network operating systems.
+  	
+  	\section{Distribution Transparency and Example}
+  	Distribution transparency is the phenomenon by which distribution aspects
+in a system are hidden from users and applications. \\
+Examples include access transparency, location transparency, migration transparency, relocation transparency, concurrency transparency and failure transparency.
+
+ 	\section{Reason for Why It Is Hard to Hide the Occurrence and Recovery From Failures in a Distributed System}
+  	It is generally impossible to detect whether a server is actually down, or
+that it is simply slow in responding.
+
+  	\section{Why It Is Not always a Good Idea to Aim at Implementing the Highest Degree of Transparency Possible}
+  	There is a trade-off between high degree of transparency and users accepted performance. If you try to aim to implement the highest degree of transparency, it could lead to slower-than-accepted performance.
+  	
+	\section{An Open Distributed System and Benifits}
+	An open distributed system offers services according to clearly defined
+rules. \\
+An open system is not only capable of easily interoperating with other open systems but also allows applications to be easily ported between different implementations of the same system.
+
+	\section{A Scalable System}
+	A system is scalable when it can grow in one or more dimensions, with respect to either its number of components, geographical size or number and size of administrative domains, without an unacceptable loss of performance.
+	
+	\section{Different Techniques of Scalability}
+	Scaling can be achieved through distribution, replication, and caching.
+	
+\end{document}
