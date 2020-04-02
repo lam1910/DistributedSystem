@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="code/src"/>
+	<classpathentry kind="src" path="microservices-demo/microservice-kubernetes-demo-catalog/src/main/java"/>
+	<classpathentry kind="src" path="microservices-demo/microservice-kubernetes-demo-catalog/src/test/java"/>
+	<classpathentry kind="src" path="microservices-demo/microservice-kubernetes-demo-customer/src/main/java"/>
+	<classpathentry kind="src" path="microservices-demo/microservice-kubernetes-demo-customer/src/test/java"/>
+	<classpathentry kind="src" path="microservices-demo/microservice-kubernetes-demo-order/src/main/java"/>
+	<classpathentry kind="src" path="microservices-demo/microservice-kubernetes-demo-order/src/test/java"/>
+	<classpathentry kind="lib" path="microservices-demo/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="lib" path="microservices-demo/microservice-kubernetes-demo-catalog/target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="microservices-demo/microservice-kubernetes-demo-customer/target/microservice-kubernetes-demo-customer-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="microservices-demo/microservice-kubernetes-demo-order/target/microservice-kubernetes-demo-order-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="microservices-demo/microservice-kubernetes-demo-catalog/target/classes"/>
+</classpath>
