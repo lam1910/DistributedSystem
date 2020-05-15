@@ -1,0 +1,140 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{datetime}
+\usepackage{graphicx}
+
+\title{Chapter 3: Processes and Threads}
+\newdate{date}{21}{04}{2020}
+\date{\displaydate{date}}
+\author{Nguyen Ngoc Lam - 20162316}
+
+\begin{document}
+	\pagenumbering{gobble}
+  	\maketitle
+  	\newpage
+  	\pagenumbering{arabic}
+  	\tableofcontents
+  	\newpage
+  	
+  	\section{Compare Process with Thread}
+  	\begin{tabular}{|c|c|}
+  	\hline 
+  	\textbf{Process} & \textbf{Thread} \\ 
+  	\hline 
+  	System calls needed. & No system calls involved. \\ 
+  	\hline 
+  	Context switching required. & No context switching required. \\ 
+  	\hline 
+  	Different process have different  & Sharing same copy of \\ copies of code and data. & code and data can be possible \\ & among different threads. \\
+  	\hline 
+  	Operating system treats &  All user level threads treated as \\different process differently. & single task for operating system. \\ 
+  	\hline 
+  	If a process got blocked,  & If a user level thread got blocked, \\ remaining process continue & all other threads get blocked since \\their work & they are single task to OS. \\ 
+  	\hline 
+  	Processes are independent. & Threads exist as subsets of  \\ &a process. They are dependent. \\ 
+  	\hline 
+  	Process run in separate  & Threads run in shared memory space.\\ memory space. & memory space. And use memory  \\ & of process which it belong to.\\ 
+  	\hline 
+  	Processes have their own & Threads share Code section, \\ program counter (PC), register set& data section, address space \\  and stack space. & with other threads.\\
+  	\hline 
+  	 Communication between processes  & Communication between processes \\ requires some time. &requires less time than processes. \\ 
+  	\hline 
+  	Processes don’t share the memory & Threads share the memory with\\with any other process. & other threads of the same process \\ 
+  	\hline 
+  	Process have overhead. & Threads have no overhead. \\ 
+  	\hline 
+  	\end{tabular}
+  	
+  	\section{Limit the Number of Threads in a Server Process}
+  	Yes, for two reasons. 
+  	\begin{itemize}
+  		\item First, threads require memory for setting up their own private stack. Consequently, having many threads may consume too much memory for the server to work properly.
+  		\item Secondly, to an operating system, independent threads tend to operate in a chaotic manner. In a virtual memory system it may be difficult to build a relatively stable working set, resulting in many page faults and thus I/O. Having many threads may thus lead to a performance degradation resulting from page thrashing. \textbf{(more important)}.
+  	\end{itemize}
+  	
+  	\section{Lightweight Process}
+  		\subsection{As a Solution of Combining Advantages of Deploying Thread Package in User and Kernel Space}
+  		\begin{itemize}
+  			\item Responsiveness
+  			\item Resource Sharing
+  			\item Economy
+  			\item Utilization of Multiprocessor Architectures
+  		\end{itemize}
+  		\subsection{A Single Lightweight Process per Process Is Not A Good Idea}
+  		Such an association effectively reduces to having only kernel-level
+threads, implying that much of the performance gain of having threads in the
+first place, is lost.
+
+	\section{Advantages of Multi-threaded Server Compared to Single-threaded Server}
+	\begin{itemize}
+		\item All the threads of a process share its resources thus making it more economical.
+		\item Program responsiveness allows a program to run even if part of it is blocked using multithreading.
+		\item Increasesing concurrency of the system since each thread can run on different processor.
+	\end{itemize}
+	\section{Advantages and Disadvantages of Each of Three Models of Multi-threaded Server}
+		\subsection{Thread-per-request}
+			\subsubsection{Advantages}
+			\begin{itemize}
+				\item The main advantage of thread-per-request is that it is  straightforward to implement.
+				\item This architecture is particularly useful to handle long-duration requests, such as database queries, from multiple clients.
+			\end{itemize}
+			\subsubsection{Disadvantages}
+			\begin{itemize}
+				\item Thread-per-request can consume a large number of OS resourcesif many clients make requests simultaneously.
+				\item It is inefficient for short-duration requests because it incurs excessive thread creation overhead.  
+				\item It architectures are not suitable for real-time applications since the overhead of spawn a thread for each request can be non-deterministic.
+			\end{itemize}
+		\subsection{Thread-per-connection}
+			\subsubsection{Advantages}
+			\begin{itemize}
+				\item Thread-per-connection is straightforward to implement.
+				\item It is well suited to perform long-duration conversations  with multiple clients.
+			\end{itemize}
+			\subsubsection{Disadvantages}
+			\begin{itemize}
+				\item Thread-per-connection does not support load balancing effectively.
+				\item For clients that make only a single request to each server, thread-per-connection is equivalent to the thread-per-request architecture.
+			\end{itemize}
+		\subsection{Thread-per-object}
+			\subsubsection{Advantages}
+			\begin{itemize}
+				\item Thread-per-object is useful to minimize the amount of rework required to multi-thread existing single-threaded servants given that all methods in a servant only access servant-specific state there is no need for explicit synchronization operations.				
+			\end{itemize}
+			\subsubsection{Disadvantages}
+			\begin{itemize}
+				\item Thread-per-object does not support load balancing effectively since it serializes request processing in each servant. 
+				\item Therefore, if one servant receives considerably more requests than others it can become a performance bottleneck. 
+				\item It is prone to deadlock on nested callbacks.				
+			\end{itemize}
+	
+	\section{Server Following Finite State Machine}
+		\subsection{Example}
+		Node.js is an example of a server following Finite state machine
+		\subsection{Reason for its High Scalability}
+		While single threaded, Node.js is asynchronous so a lot of requests can run on the single thread very quickly.
+	\section{The Need of Multi-threaded for Client in Distributed Systems}
+	In a single-process, single-threaded environment all requests to, e.g., the I/O interface blocks any further progress in the process. Any combination of a multi-process or multi-threaded implementation of the library makes provision for the user of the client application to request several independent documents at the same time without getting blocked by slow I/O operations.\\
+	\textbf{Example:} As a World-Wide Web client is expected to use much of the execution time doing I/O operation such as "connect" and "read", a high degree of optimization can be obtained if multiple threads can run at the same time.
+	\section{The Need of Virtualization Technology}
+	\begin{itemize}
+		\item Reduce Downtime
+		\item Save Money and Time
+		\item Better Recovery When Critical Error Happened
+	\end{itemize}
+	\section{Reason Why X-Window system Suitable for Thin Client Architecture}
+	\begin{itemize}
+		\item X is an architecture-independent system for remote graphical user interfaces and input device capabilities.
+		\item Each person using a networked terminal has the ability to interact with the display with any type of user input device.
+		\item X provides the basic framework, or primitives, for building such GUI environments: drawing and moving windows on the display and interacting with a mouse, keyboard or touchscreen
+		\item A Thin Client Architecture is system where the clients (the application that runs on a personal computer or workstation and relies on a server to perform some operations) does very little. They basically just act as terminal for the server.
+		\item This architecture allows diskless client and make data storage more centralized.
+		\item Since X is a windowing system, meaning it manages separated screens, it is suitable for thin client architechture as X-Window system does not require much client-side 
+	\end{itemize}
+	\section{Compare the Daemon Server and Superserver}
+		\subsection{Daemon}
+		In multitasking computer operating systems, a daemon is a computer program that runs as a background process, rather than being under the direct control of an interactive user. It means that daemon will always run as long as the system is still up.\\
+		When finding a server, since the daemon is always running, you just need to call that particular daemon. However, many daemon may limit the performance of the hardware system. In addition, when needed, application may have to 'remember' the exact daemon for the job.
+		\subsection{Superserver}
+		Superserver is a kind of daemon that called neccesary servers when they are needed.\\
+		When finding a server, client will call directly to superserver. The downside of this is that the response time might be high.
+\end{document}

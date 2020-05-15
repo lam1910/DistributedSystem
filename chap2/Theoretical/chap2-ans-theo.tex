@@ -80,4 +80,17 @@ node toward the destination, which in this case D, we will actually go a little 
 			\item Microservice architecture enables each service to be scaled independently.
 		\end{itemize}
 	\section{Design an E-commerce System Using Microservices Architecture}
+	Services in the system:
+	\begin{itemize}
+		\item HTTP apche: Get the HTTP request and forward it to the right service
+		\item Customer: Handling customer data like: name, address, age, gender , preferences et cetera
+		\item Order: Handling order information: who buying, from whom, what sort of item/items, how many item and for how much
+		\item Catalog: Handling item information: of what catergory, how many variants (color, size, shape, version), contain what items (for bundle), how many items left, unit price, rating
+		\item Vendor: Handling vendor information: name, address, vendor rating, what items are they selling, number of items sold in a time period (for customer to know if they have been receiving lots of requests)
+	\end{itemize}
+	\begin{figure}[h!]
+  			\includegraphics[width=\linewidth]{e-comm.png}
+  			\caption{Figure to illustrate how the system interact}
+  			\label{fig:ecomm}
+		\end{figure}
 \end{document}

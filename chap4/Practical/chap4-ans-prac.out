@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{What is the code part that shows that the Server assigns the correlation ID to the response?}{}% 1
+\BOOKMARK [1][-]{section.2}{You base on both code of Client and Server program to explain which code shows that the Client sends request to Server through rpc\137queue and create a new queue to wait for the reply of the Server.}{}% 2
+\BOOKMARK [1][-]{section.3}{Try to add the delay to the Server program}{}% 3
+\BOOKMARK [1][-]{section.4}{Important note for the video streaming part.}{}% 4
+\BOOKMARK [1][-]{section.5}{What is the IP address of your 2 machines? How to ping each other?}{}% 5
+\BOOKMARK [1][-]{section.6}{Can you watch the video in the client machine? Evaluate the quality of the video streaming service.}{}% 6
+\BOOKMARK [1][-]{section.7}{What is the result of the ping test? Can you see an increase of 100 milliseconds?}{}% 7
+\BOOKMARK [1][-]{section.8}{Disable the buffering function of VLC in Client machine. Then, evaluate the video quality at the Client machine. How can you conclude the impact of fix delay on video streaming service?}{}% 8
+\BOOKMARK [1][-]{section.9}{Evaluate the video quality atthe Client machine. How can you conclude the impact of delay variation on video streaming service?}{}% 9
+\BOOKMARK [1][-]{section.10}{Evaluate the video quality at the Client machine. How can you conclude the impact of fix loss rate on video streaming service? Try to increase the value of loss rate to see the impact more clear.}{}% 10
+\BOOKMARK [1][-]{section.11}{Evaluate the video quality at the Client machine. How can you conclude the impact of loss rate variation on video streaming service? Try to increase this value to see the impact more clear.}{}% 11
+\BOOKMARK [1][-]{section.12}{Evaluate the video quality at the Client machine. How can you conclude the impact of packet duplication on video streaming service? Try to increase this value to see the impact more clear.}{}% 12
+\BOOKMARK [1][-]{section.13}{Evaluate the video quality at the Client machine. How can you conclude the impact of packet corruption on video streaming service? }{}% 13
