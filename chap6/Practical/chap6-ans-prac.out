@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Launch this program several times. What do you notice? Explain it!}{}% 1
+\BOOKMARK [1][-]{section.2}{Differences after synchronization. Explain}{}% 2
+\BOOKMARK [1][-]{section.3}{Differences after using lock. Explain}{}% 3
+\BOOKMARK [1][-]{section.4}{Complete this file above \(in the part YOUR-CODE-HERE\) with a loop to increase the variable shared by 1 for 5 seconds.}{}% 4
+\BOOKMARK [1][-]{section.5}{Try to increase the value of threads and the value of the constant NUM\137TRANS after each execution time until you obtain the different results between Balance and INIT\137BALANCE + credits - debits. Explain why do you get this difference.}{}% 5
+\BOOKMARK [1][-]{section.6}{Try to build and run this program. Launch it repeatedly until you see the difference between Shared and Expect values. Analyze the source code to understand the problem that leads to this difference.}{}% 6
+\BOOKMARK [1][-]{section.7}{What is the improvement after using mutex lock}{}% 7
+\BOOKMARK [1][-]{section.8}{Compare the run times of the two strategies to prove that Fine Locking is faster and much faster on larger load sets}{}% 8
+\BOOKMARK [1][-]{section.9}{Run this program and what do you get as output? Explain what the deadlock is}{}% 9
