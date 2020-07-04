@@ -12,3 +12,5 @@
 	-	The name of the project (created on eclipse) had been modified DistributedSystemJavaCode
 
 2.	IDE used: Eclipse
+
+3.	Added a image of node_module due to mistake (update on 4/Jul/2020: added to gitignore)
